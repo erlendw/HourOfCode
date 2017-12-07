@@ -32,6 +32,15 @@
 
 	function tellNed(){
 		ferdig = true;
-		document.getElementById("teller").innerHTML = "Du klarte å bytte farge " + teller + " ganger!"
+
+		if(localStorage.score){
+			if(teller > localStorage.score){
+				localStorage.score = teller;
+			}
+		}
+
+		document.getElementById("teller").innerHTML = "Du klarte å bytte farge " + teller + " ganger! Din high-score er " + localStorage.score + " Trykk f5 for å prøve igjen"
+		localStorage.score = teller;
+		
  	}
 </script>

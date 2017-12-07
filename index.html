@@ -1,0 +1,37 @@
+<body>
+	<div id="farge" style="width:100%;height:100%;background:yellow;" onClick="funk()">
+	<div id="teller" style="color:White;-webkit-text-stroke: 1px black; font-size:50px; position: absolute;top:50%;left:50%;transform: translateX(-50%) translateY(-50%);">0</div>
+	</div>
+</body>
+
+<script>
+
+	var teller = 0;
+	var ferdig = false;
+
+	function funk(){
+
+		if(ferdig){
+			return;
+		}
+	
+		if(teller === 0){
+			setTimeout(tellNed, 10000)
+		}		
+
+		teller = teller+1;
+		var fargeTall1 = Math.floor(Math.random() * 256);
+		var fargeTall2 = Math.floor(Math.random() * 256);
+		var fargeTall3 = Math.floor(Math.random() * 256);
+		var tilfeldigFarge = "rgb(" + fargeTall1 + "," + fargeTall2 + "," + fargeTall3  + ")";
+		
+		document.getElementById("farge").style.backgroundColor = tilfeldigFarge;
+		document.getElementById("teller").innerHTML = teller;
+	
+	}
+
+	function tellNed(){
+		ferdig = true;
+		document.getElementById("teller").innerHTML = "Du klarte å bytte farge " + teller + " ganger!"
+ 	}
+</script>
